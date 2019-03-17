@@ -1,0 +1,5 @@
+def is_multiple(n, m):
+    try: 
+        return True if (int(n) % int(m) == 0) else False 
+    except ValueError: 
+        print('Numbers must be Integer values')
