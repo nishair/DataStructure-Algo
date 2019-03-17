@@ -1,0 +1,5 @@
+def is_even(k):
+    try: 
+        return int(k) & 1 == 0 
+    except ValueError: 
+        print('Number must be Integer values')
