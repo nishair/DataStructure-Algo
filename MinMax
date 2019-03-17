@@ -1,0 +1,29 @@
+class MinMax():
+	def __init__(self,min,max):
+		self.min = min
+		self.max = max
+	def __str__(self):
+		return f'''"Min {self.min} - " "Max {self.max}"'''
+
+def minmax(data):
+	start = 0
+	mm = MinMax(data[start],data[start])
+	if len(data) & 1 == 1:
+		if data[start] < data[start+1]:
+			mm.max = data[start+1]
+			mm.min = data[start]
+			start+=2
+		else:
+			start+=1
+	for index in range(start, len(data[start:]), 2):
+		if data[index] < data[index+1]:
+			l_min = data[index]
+			l_max = data[index+1]
+		else:
+			l_min = data[index+1]
+			l_max = data[index]
+		if mm.min  > l_min:
+			mm.min = l_min
+		if mm.max < l_max:
+			mm.max = l_max
+	return mm
